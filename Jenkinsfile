@@ -23,9 +23,9 @@ node {
 		stage('Staging Environment') {
 			app.push()
 			sshagent(['ssh-creds']) {
-				sh 'ssh -t -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 sudo docker pull 192.168.100.160:5000/trex-demo-stage/service-a:latest'
-				sh 'ssh -t -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 sudo docker tag 192.168.100.160:5000/trex-demo-stage/service-a:latest 172.30.122.20:5000/trex-demo-stage/service-a:latest'
-				sh 'ssh -t -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 sudo docker push 172.30.122.20:5000/trex-demo-stage/service-a:latest'
+				sh 'ssh -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 sudo docker pull 192.168.100.160:5000/trex-demo-stage/service-a:latest'
+				sh 'ssh -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 sudo docker tag 192.168.100.160:5000/trex-demo-stage/service-a:latest 172.30.122.20:5000/trex-demo-stage/service-a:latest'
+				sh 'ssh -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 sudo docker push 172.30.122.20:5000/trex-demo-stage/service-a:latest'
 			}
 		}
 
