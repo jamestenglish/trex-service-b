@@ -15,7 +15,8 @@ node {
 			def testResult = app.withRun('-v "`pwd`":/code/results','./test.sh') { c ->
 				sh 'whoami'
 			}
-			junit 'nose2-junit.xml'
+			echo testResult
+			//junit 'nose2-junit.xml'
 		}
 
 		stage('Staging Environment') {
