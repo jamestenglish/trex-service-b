@@ -5,10 +5,11 @@ node {
 		sh 'ls -la'
 	}
 	
-	
+	def app = null
 	docker.withServer('tcp://192.168.100.160:2375') {
+		
 		stage('Build Docker') {
-			def app = docker.build "172.30.122.20:5000/trex-demo-stage/service-a:latest"
+			app = docker.build "172.30.122.20:5000/trex-demo-stage/service-a:latest"
 		}
 		stage('Unit Test') {
 			def testResult = app.withRun('-v "`pwd`":/code/results','./test.sh') { c ->
