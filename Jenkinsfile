@@ -16,12 +16,13 @@ node {
 				sh 'whoami'
 			}
 			echo testResult
+			sh 'ls -la'
 			//junit 'nose2-junit.xml'
 		}
 
 		stage('Staging Environment') {
 			app.push()
-			sshagent('ssh-creds') {
+			sshagent(['ssh-creds']) {
 				sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 192.168.10.80 uname -a'
 			}
 		}
