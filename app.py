@@ -13,7 +13,8 @@ def demo():
     time.sleep(2)
     return ANSWER
 
-@app.route('/v'):
+@app.route('/v')
+def v():
     return VERSION
 
 @app.route('/health')
