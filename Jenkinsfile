@@ -1,4 +1,4 @@
-def registryTag = 'trex-demo-stage/service-a:latest'
+def registryTag = 'trex-demo-stage/service-b:latest'
 node {
 	stage('Checkout') {
 		checkout scm
