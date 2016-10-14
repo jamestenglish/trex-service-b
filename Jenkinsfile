@@ -1,4 +1,4 @@
-def token = ''
+def token = 'fIFVFOGfj5a9g2LLKaeuXZ_LWWGe7yAICoj6GCWehaU'
 node {
 	stage 'Checkout'
 	checkout scm
@@ -9,7 +9,7 @@ node {
 		def app = docker.build "172.30.122.20:5000/trex-demo-stage/service-a:latest"
 
 		stage 'Unit Test'
-		def testResult = app.withRun('-v `pwd`:/code/results','./test.sh') { c ->
+		def testResult = app.withRun('-v "`pwd`":/code/results','./test.sh') { c ->
 			sh 'whoami'
 		}
 		junit '*.xml'
