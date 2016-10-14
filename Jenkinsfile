@@ -1,4 +1,3 @@
-def token = 'fIFVFOGfj5a9g2LLKaeuXZ_LWWGe7yAICoj6GCWehaU'
 node {
 	stage('Checkout') {
 		checkout scm
