@@ -1,14 +1,20 @@
 from flask import Flask
 from demo import ANSWER
+from version import VERSION
+import time
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Flask Dockerized'
+    return 'Trex Service B'
 
 @app.route('/demo')
 def demo():
+    time.sleep(2)
     return ANSWER
+
+@app.route('/v'):
+    return VERSION
 
 @app.route('/health')
 def health():
