@@ -3,6 +3,7 @@ node {
 	stage('Checkout') {
 		checkout scm
 		sh 'ls -la'
+		sh "echo 'VERSION = ${env.BUILD_NUMBER}' > version.py"
 	}
 	
 	def app = null
@@ -12,7 +13,7 @@ node {
 			app = docker.build "192.168.100.160:5000/${registryTag}"
 		}
 		stage('Unit Test') {
-			def testResult = app.withRun('-v "`pwd`":/code/results','./test.sh') { c ->
+			def testResult = app.withRun('-v "`pwd`":/code/results','./test.sh > temp') { c ->
 				sh 'whoami'
 			}
 			echo testResult
