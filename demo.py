@@ -1,1 +1,1 @@
-ANSWER = 14
+ANSWER = 42
