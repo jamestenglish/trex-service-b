@@ -23,7 +23,7 @@ node {
 		stage('Staging Environment') {
 			app.push()
 			sshagent(['ssh-creds']) {
-				sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 192.168.10.80 uname -a'
+				sh 'ssh -o StrictHostKeyChecking=no -l saicadm 192.168.100.80 uname -a'
 			}
 		}
 
