@@ -41,7 +41,7 @@ node {
 		stage('Integration Test') {
 			def maxCount = 0
 			while(maxCount <= 60) {
-				def result = sh(script: "curl http://service-b-trex-demo-stage.router.default.svc.cluster.local/v", returnStdout: true).trim() 
+				def result = sh(script: "curl http://172.30.129.208:8080/v", returnStdout: true).trim() 
 				if(result == "${env.BUILD_NUMBER}") {
 					break
 				}
