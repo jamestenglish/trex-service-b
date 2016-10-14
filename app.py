@@ -6,7 +6,8 @@ app = Flask(__name__)
 def hello_world():
     return 'Flask Dockerized'
 
-@app.route('/demo'):
+@app.route('/demo')
+def demo():
     return ANSWER
 
 @app.route('/health')
