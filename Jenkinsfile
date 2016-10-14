@@ -8,7 +8,7 @@ node {
 		def app = docker.build "172.30.122.20:5000/trex-demo-stage/service-a:latest"
 
 		stage 'Unit Test'
-		def testResult = app.withRun('','"nose2 --plugin nose2.plugins.junitxml --junit-xml && pwd && ls -la"') { c ->
+		def testResult = app.withRun('','test.sh') { c ->
 			sh 'whoami'
 		}
 		sh "echo ${testResult} > results.xml"
