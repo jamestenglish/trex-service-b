@@ -3,7 +3,7 @@ node {
 	stage('Checkout') {
 		checkout scm
 		sh 'ls -la'
-		sh "echo /"VERSION = ${env.BUILD_NUMBER}/" > version.py"
+		sh "echo \"VERSION = ${env.BUILD_NUMBER}\" > version.py"
 	}
 	
 	def app = null
