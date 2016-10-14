@@ -3,7 +3,7 @@ node {
 	checkout scm
 
 	
-	docker.withServer('tcp://192.168.100.80:2375') {
+	docker.withServer('tcp://192.168.100.160:2375') {
 		stage 'Build Docker'
 		def app = docker.build "172.30.122.20:5000/trex-demo-stage/service-a:latest"
 
