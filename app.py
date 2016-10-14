@@ -11,11 +11,11 @@ def hello_world():
 @app.route('/demo')
 def demo():
     time.sleep(2)
-    return ANSWER
+    return str(ANSWER)
 
 @app.route('/v')
 def v():
-    return VERSION
+    return str(VERSION)
 
 @app.route('/health')
 def health():
