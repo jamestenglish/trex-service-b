@@ -1,1 +1,1 @@
-ANSWER = 56
+ANSWER = 20
